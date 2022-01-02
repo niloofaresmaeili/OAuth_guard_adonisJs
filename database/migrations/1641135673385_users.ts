@@ -12,7 +12,6 @@ export default class Users extends BaseSchema {
        */
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
-      table.increments('id').primary()
       table.string('username', 256)
       table.string('name', 256)
       table.string('email', 500)
