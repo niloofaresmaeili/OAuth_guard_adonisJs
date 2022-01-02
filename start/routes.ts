@@ -20,6 +20,19 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
+// Auth
+Route.group(() => {
+  Route.post('/signup', 'AuthenticationController.signup').as('signup')
+  Route.post('/login', 'AuthenticationController.login').as('login')
+  Route.post('/logout', 'AuthenticationController.logout').as('logout')
+  Route.get('/refresh_token', 'AuthenticationController.refreshToken').as('refresh_token')
+  Route.post('/client_credentials', 'AuthenticationController.clientCredential').as(
+    'client_credentials'
+  )
+})
+  .prefix('/api/auth')
+  .as('token_auth')
+
 Route.get('/', async () => {
   return { hello: 'world' }
 })
